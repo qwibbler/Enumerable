@@ -1,13 +1,17 @@
 module MyEnumerable
   def all?
-    @list.each { |item| return false unless yield item }
-    return true
+    @list.each { |item| return p false unless yield item }
+    p true
   end
 
-  def any?; end
+  def any?
+    @list.each { |item| return p true if yield item }
+    p false
+  end
 
-  def filter; end
+  def filter
+    arr = []
+    @list.each { |item| arr << item if yield item }
+    p arr
+  end
 end
-
-# include MyEnumerable
-# MyEnumerable.all?
