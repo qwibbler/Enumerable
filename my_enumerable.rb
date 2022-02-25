@@ -1,9 +1,7 @@
 module MyEnumerable
   def all?
-    numbers.each{ |num| 
-      if num.class == Integer 
-      end
-    }
+    @list.each { |item| return false unless yield item }
+    return true
   end
 
   def any?; end

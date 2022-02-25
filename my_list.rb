@@ -1,11 +1,14 @@
 require './my_enumerable'
 
 class Mylist
-  attr_accessor :numbers
-  def initialize(*numbers)
-    @numbers = numbers
+  attr_accessor :list
+  def initialize(*list)
+    @list = list
   end
   include MyEnumerable
+
+  def each
+    @list.each { |item| yield item if block_given? }
 end
 
 
